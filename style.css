@@ -1,0 +1,313 @@
+/* 1. DESIGN SYSTEM VARIABLES & TOKENS */
+:root {
+  /* Colors Spec Requirements */
+  --clr-brand-indigo: #4036A9;
+  --clr-dark-bg: #111729;
+  --clr-border-gray: #CDD5E0;
+  --clr-white: #FFFFFF;
+  --clr-glass-card: #FFFFFF33; 
+  --clr-accent-pink: #B4436D;
+
+  /* Typography Guidelines */
+  --ff-base: 'Be Vietnam Pro', sans-serif;
+  
+  --fs-h1-mobile: 2.25rem;    /* 36px */
+  --fs-h1-tablet: 3rem;       /* 48px */
+  --fs-h1-desktop: 4rem;      /* 64px */
+  
+  --fs-subtext: 1rem;    
+  --fs-body: 1rem;        
+  --fs-label: 0.875rem;   
+  --fs-btn: 1.125rem;     
+
+  /* Box Shadows */
+  --shadow-main-box: 0px 30px 100px 0px rgba(17, 23, 41, 0.15);
+}
+
+/* 2. GLOBAL RESET & BASE ACCESSIBILITY DEFAULTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Accessible focus outline treatments */
+*:focus-visible {
+  outline: 3px solid var(--clr-accent-pink);
+  outline-offset: 3px;
+}
+
+body {
+  font-family: var(--ff-base);
+  color: var(--clr-white);
+  min-height: 100vh;
+  background-image: url('resources/background.svg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+/* 3. MASTER PAGE CONTAINER LAYOUT BLOCK (.contact-page) */
+.contact-page {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Brand Header Block - Default center-left for mobile platforms */
+.contact-page__brand {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+.contact-page__logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+/* Central Content Wrapper to constrain alignment boundaries */
+.contact-page__content {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Introduction Headings Block - Fixed max-widths forcing crisp 2 lines */
+.contact-page__intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.contact-page__title {
+  font-size: var(--fs-h1-mobile);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+}
+
+.contact-page__description {
+  font-size: var(--fs-subtext);
+  font-weight: 400;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Helper utility control to manage clean breaks explicitly on matching displays */
+.u-forced-break {
+  display: inline;
+}
+
+/* Card Container Content Background Box Overlay */
+.contact-page__form-container {
+  width: 100%;
+  background-color: var(--clr-glass-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-main-box);
+}
+
+/* 4. FORM ELEMENTS COMPONENT (.contact-form) */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.contact-form__label {
+  font-size: var(--fs-label);
+  font-weight: 500;
+  color: var(--clr-border-gray);
+  letter-spacing: 0.2px;
+}
+
+/* Clean Input Fields, Select Options, & Textareas styling formulas */
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+  width: 100%;
+  font-family: var(--ff-base);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  color: var(--clr-dark-bg);
+  background-color: var(--clr-white);
+  border: 2px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Placeholder styles - ensures light text formatting inside elements */
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: #6B7280;
+  opacity: 0.8;
+}
+
+.contact-form__input:focus,
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+  border-color: var(--clr-brand-indigo);
+  box-shadow: 0px 0px 0px 4px rgba(64, 54, 169, 0.15);
+}
+
+.contact-form__textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Dropdown styling overriding OS default arrow styling using Expand_down.svg icon */
+.contact-form__select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.contact-form__select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+/* Style default disabled default placeholder text colors safely */
+.contact-form__select:invalid,
+.contact-form__select option[value=""] {
+  color: #6B7280;
+}
+
+.contact-form__select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url('resources/Expand_down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* Main Submission Call-To-Action Button styling */
+.contact-form__button {
+  width: 100%;
+  background-color: var(--clr-white);
+  color: var(--clr-brand-indigo);
+  font-family: var(--ff-base);
+  font-size: var(--fs-btn);
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.contact-form__button:hover {
+  background-color: #F3F4F6;
+}
+
+.contact-form__button:active {
+  transform: scale(0.99);
+}
+
+/* 5. ATTRIBUTION AND EXTERNAL FOOTER MODULE */
+.contact-page__footer {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.author-info {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--clr-border-gray);
+  opacity: 0.7;
+}
+
+.author-info a {
+  color: var(--clr-white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: text-decoration 0.2s ease;
+}
+
+.author-info a:hover {
+  text-decoration: underline;
+}
+
+/* 6. RESPONSIVE LAYOUT BREAKPOINTS */
+
+/* Tablet Layout configuration (min-width: 640px) */
+@media (min-width: 640px) {
+  .contact-page__title {
+    font-size: var(--fs-h1-tablet);
+  }
+
+  .contact-form__row {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .contact-page__form-container {
+    padding: 2.5rem;
+    border-radius: 20px;
+  }
+}
+
+/* Large Desktop Width Layout Adjustments (min-width: 1024px) */
+@media (min-width: 1024px) {
+  body {
+    padding: 4rem 2rem;
+  }
+
+  /* Expand max widths on desktop grid views */
+  .contact-page__content {
+    max-width: 940px;
+  }
+
+  /* Triggers the logo container to match the wider container layout and span to the far-left border seamlessly */
+  .contact-page__brand {
+    max-width: 940px;
+    margin-bottom: 4rem;
+  }
+
+  .contact-page__title {
+    font-size: var(--fs-h1-desktop);
+    letter-spacing: -1.5px;
+  }
+}
