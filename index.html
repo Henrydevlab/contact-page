@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Get custom business pricing details from Becv. Fill out our contact form to learn about building landing pages and tailored corporate packages." />
+    <meta name="keywords" content="Becv, business pricing, custom landing pages, contact sales, business quotes" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Henry" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Interested in our business pricing? | Becv Sales" />
+    <meta property="og:description" content="Fill out the form to view details and our sales team will contact you as soon as possible." />
+    <meta property="og:image" content="https://henrydevlab.github.io/contact-page/design/Desktop_1350px.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Interested in our business pricing? | Becv Sales" />
+    <meta name="twitter:description" content="Fill out the form to view details and our sales team will contact you as soon as possible." />
+    <meta name="twitter:image" content="https://henrydevlab.github.io/contact-page/design/Desktop_1350px.jpg" />
 
     <link
       rel="icon"
@@ -11,66 +27,107 @@
       sizes="96x96"
     />
 
-    <title>Contact Page | devChallenges.io</title>
+    <title>Contact Sales & Get Business Pricing | Becv</title>
 
-    <!--You are welcome to delete these styles or modify them in your own stylesheet -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-      body {
-        height: 100vh;
-      }
-
-      .author-info {
-        font-size: 14px;
-        text-align: center;
-        margin-top: 16px;
-        color: rgb(55, 65, 81);
-      }
-
-      .author-info a {
-        text-decoration: none;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- 
-  Interested in our business pricing?
-   
-  Fill out the form to view details and we’ll contact you as soon as possible.
-  
-  Name
+    <div class="contact-page">
+      
+      <header class="contact-page__brand">
+        <a href="/" aria-label="Becv Homepage">
+          <img src="resources/Logo.svg" alt="Becv Logo" class="contact-page__logo" />
+        </a>
+      </header>
 
-  Ethan Johnson
+      <div class="contact-page__content">
+        <section class="contact-page__intro" aria-labelledby="form-heading">
+          <h1 id="form-heading" class="contact-page__title">Interested in our<br class="u-forced-break"> business pricing?</h1>
+          <p class="contact-page__description">Fill out the form to view details and we’ll contact<br class="u-forced-break"> you as soon as possible.</p>
+        </section>
 
-  Company Email
-  
-  ethan@johnson.com
+        <main class="contact-page__form-container">
+          <form class="contact-form" action="#" method="POST" aria-label="Business Pricing Contact Form">
+            
+            <div class="contact-form__row">
+              <div class="contact-form__group">
+                <label for="name" class="contact-form__label">Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="contact-form__input" 
+                  placeholder="Ethan Johnson" 
+                  autocomplete="name"
+                  required 
+                />
+              </div>
 
-  Company Size
+              <div class="contact-form__group">
+                <label for="email" class="contact-form__label">Company Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="contact-form__input" 
+                  placeholder="ethan@johnson.com" 
+                  autocomplete="email"
+                  required 
+                />
+              </div>
+            </div>
 
-  50-100 employees
-  
-  Subject
+            <div class="contact-form__row">
+              <div class="contact-form__group">
+                <label for="company-size" class="contact-form__label">Company Size</label>
+                <div class="contact-form__select-wrapper">
+                  <select id="company-size" name="company_size" class="contact-form__select" required aria-required="true">
+                    <option value="" disabled selected hidden>50-100 employees</option>
+                    <option value="1-49">1-49 employees</option>
+                    <option value="50-100">50-100 employees</option>
+                    <option value="101-500">101-500 employees</option>
+                  </select>
+                </div>
+              </div>
 
-  Building Landing pages
+              <div class="contact-form__group">
+                <label for="subject" class="contact-form__label">Subject</label>
+                <div class="contact-form__select-wrapper">
+                  <select id="subject" name="subject" class="contact-form__select" required aria-required="true">
+                    <option value="" disabled selected hidden>Building Landing pages</option>
+                    <option value="landing-pages">Building Landing pages</option>
+                    <option value="pricing">Business Pricing Inquiry</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-  Message
+            <div class="contact-form__group">
+              <label for="message" class="contact-form__label">Message</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                class="contact-form__textarea" 
+                placeholder="50-100 employees" 
+                required
+              ></textarea>
+            </div>
 
-  50-100 employees
+            <button type="submit" class="contact-form__button">Contact Sales</button>
+          </form>
+        </main>
+      </div>
 
-  Contact Sales
-  -->
-
-    <div class="author-info">
-      Coded by <a href="#">Your Name Here</a> | Challenge by
-      <a href="https://www.devchallenges.io?ref=challenge" target="_blank"
-        >devChallenges.io</a
-      >.
+      <footer class="contact-page__footer" role="contentinfo">
+        <div class="author-info">
+          Coded by <a href="https://github.com/henrydevlab" target="_blank" rel="noopener">Henry</a> | Challenge by
+          <a href="https://www.devchallenges.io?ref=challenge" target="_blank" rel="noopener">devChallenges.io</a>.
+        </div>
+      </footer>
     </div>
   </body>
 </html>
