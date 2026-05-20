@@ -302,7 +302,8 @@ body {
 
   /* Triggers the logo container to match the wider container layout and span to the far-left border seamlessly */
   .contact-page__brand {
-    max-width: 940px;
+    align-self: flex-start;
+    /* max-width: 940px; */
     margin-bottom: 4rem;
   }
 
